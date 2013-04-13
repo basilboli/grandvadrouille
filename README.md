@@ -1,4 +1,6 @@
 grandvadrouille
 ===============
 
-little service to visualize roommates contribution to weekly cleaning
+Little service to visualize roommates contribution to weekly cleaning.
+
+Liberté, égalité, fraternité rocks!
