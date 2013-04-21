@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+<script>
+    function greeting()
+    {
+    alert("Merci!");
+    }
+</script>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+  <h1>Grand vadrouille!</h1>
+  <p class="lead">Liberté, égalité, fraternité dans le menage!</p>
+  <br>
+  <form class="form-signin" action="add" method='post' onsubmit="greeting()">
+      <h2 class="form-signin-heading">Veuillez selectionner l'équipe</h2>
+        <select multiple id="team" name="team" size="5">
+          {% for user in users %}
+            <option>{{user.name}}</option>
+          {% endfor %}
+        </select>
+      <p><button class="btn btn-large btn-success" type="submit">Bim</button></p>
+  <!-- <input type="text" class="input-block-level" placeholder="Personne #1"> -->
+  <!-- <input type="password" class="input-block-level" placeholder="Personne #2"> -->
+  <!-- <button class="btn btn-large btn-primary" type="submit">Sign in</button> -->
+
+</form>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Gracias</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
