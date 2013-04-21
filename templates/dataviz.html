@@ -14,7 +14,7 @@ var data  = [];
 document.write('<br>');
 console.log(data);
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 30, left: 230},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -63,7 +63,7 @@ var svg = d3.select("body").append("svg")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("times");
+      .text("fois");
 
   svg.selectAll(".bar")
       .data(data)
