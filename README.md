@@ -4,8 +4,8 @@ Grandvadrouille
 # What is it ?
 Super simple and intuitive service to manage and visualize roommates contribution to cleaning.
 
-<img src="https://dl.dropboxusercontent.com/u/858283/img1.png">
-<img src="https://dl.dropboxusercontent.com/u/858283/img2.png">
+<img src="https://dl.dropboxusercontent.com/u/858283/img1.png" width='580px' height='380px'>
+<img src="https://dl.dropboxusercontent.com/u/858283/img2.png" width='580px' height='380px'>
 
 **Choose** a team, **confirm** and **see** actual cleaning contribution by roommate.
 
