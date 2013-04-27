@@ -1,10 +1,15 @@
-grandvadrouille
+Grandvadrouille 
 ===============
 
 # What is it ?
 Super simple and intuitive service to manage and visualize roommates contribution to cleaning.
 
-**Choose*** a team, **confirm*** and **see*** actual cleaning contribution by roommate.
+<img src="https://dl.dropboxusercontent.com/u/858283/Screen%20Shot%202013-04-27%20at%2019.07.09.png" height=1 width=1>
+
+<img src="https://dl.dropboxusercontent.com/u/858283/Screen%20Shot%202013-04-27%20at%2017.15.01.png" height=1 width=1>
+
+
+**Choose** a team, **confirm** and **see** actual cleaning contribution by roommate.
 
 # What is it not ?
 cleaning planning using calendars.
@@ -14,17 +19,17 @@ You should have mongodb installed. See also requirements.txt for more details.
 
     
 0. Go to mongodb shell and add as many users as you want by executing the following command.
-    
-    db.users.insert({"name":"ROOMATE_NAME","score":0})
-for ex. 
+<code> db.users.insert({"name":"ROOMATE_NAME","score":0})</code>
+for ex. if we want to add John, Samantha and Bob
+<code>
     db.users.insert({"name":"John","score":0})
     db.users.insert({"name":"Samantha","score":0})
     db.users.insert({"name":"Bob","score":0})        
-
+</code>
 property score is actual roommate total contribution and is used for ranking roommates.
 
 1. Launch service using built-in server: 
-    python grandvadrouille.py
+    <code>python grandvadrouille.py</code>
 
 2. Go to [http://127.0.0.1:500](http://127.0.0.1:500) and enjoy!
 
