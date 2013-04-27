@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+{% for entry in history_items %}
+<form class="form-signin" action="confirm" method='post'>
+    <input name='id' value='{{entry._id}}' hidden='true'/>
+    <span class="label label-info">{{entry.date.strftime('%Y-%m-%d')|safe}} </span> - {{entry.team|join(', ')}}
+    <button class="btn btn-xxsmall btn-success" type="submit">confirm</button>
+</form>
+{% else %}
+    <p class="muted lead">Unbelievable.  No entries here so far</p>
+{% endfor %}
+{% endblock %}

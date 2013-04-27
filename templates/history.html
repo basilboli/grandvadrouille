@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 {% for entry in history_items %}
-<span class="label label-info">{{entry.date.strftime('%Y-%m-%d')|safe}} </span> - {{entry.team|safe}}<br>
+<span class="label label-info">{{entry.date.strftime('%Y-%m-%d')|safe}} </span> - {{entry.team|join(', ')}}<br>
 {% else %}
     <p class="muted lead">Unbelievable.  No entries here so far</p>
 {% endfor %}

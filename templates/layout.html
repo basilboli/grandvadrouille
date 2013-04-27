@@ -7,6 +7,7 @@
   <!-- Le styles -->
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/diff.css') }}">
   <style type="text/css">
     body {
       padding-top: 20px;
@@ -79,7 +80,7 @@
 
     @font-face {
       font-family: cool_font;
-      src: url('static/fonts/ArchitectsDaughter.ttf');
+      src: url('{{ url_for('static', filename='fonts/ArchitectsDaughter.ttf') }}');
     }
 
     body {
@@ -122,8 +123,16 @@
         <div class="container">
           <ul class="nav">
             <li><a class="active" href="/">Accueil</a></li>
-            <li><a href="viz">Progression</a></li>
-            <li><a href="history">Historique</a></li>
+            <li><a href="{{ url_for('.viz') }}">Progression</a></li>
+            <li><a href="{{ url_for('.history') }}">Historique</a></li>
+            {% if 'user_id' not in session  %}
+               <li><a href="{{ url_for('.login') }}">login</a></li>
+            {% endif %}
+            {% if 'user_id' in session  %}
+               <li><a href="{{ url_for('.pending') }}">Pending</a></li>
+               <li><a href="{{ url_for('.logout') }}">logout</a></li>
+            {% endif %}
+
           </ul>
         </div>
       </div>
