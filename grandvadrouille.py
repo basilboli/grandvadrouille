@@ -94,7 +94,7 @@ def history():
 def pending():
     """ view cleanings in pending status"""
     print 'session : ', session
-    if session['admin']==True:
+    if session['user_id'] is not None:
         pending_items = mongo.db.history.find({'status':'pending'})#requesting only pending items
         return render_template('pending.html',history_items=pending_items)
     else:
