@@ -39,6 +39,10 @@ property score is actual roommate total contribution and is used for ranking roo
 
 2. Go to [http://127.0.0.1:500](http://127.0.0.1:500) and enjoy!
 
-You can also deploy using smth. like gunicorn etc. To be covered later.    
+**Recommended** way is to deploy using gunicorn behind nginx
 
+For ex. launch app with gunicorn : 
+<code>nohup gunicorn -c gunicorn.conf.py grandvadrouille:app &</code>
+and 
 
+and configure proxy with nginx.
