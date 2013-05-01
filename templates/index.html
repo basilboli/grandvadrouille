@@ -10,10 +10,11 @@
 <!-- Jumbotron -->
   <div class="jumbotron">
   <h1>Grande vadrouille!</h1>
-  <p class="lead">Liberté, égalité, fraternité dans le ménage!</p>
+  <p class="lead muted">Liberté, égalité, fraternité dans le ménage!</p>
   <br>
   <form class="form-signin" action="add" method='post' onsubmit="greeting()">
-      <h2 class="form-signin-heading">Veuillez sélectionner l'équipe</h2>
+
+      <h2 class="form-signin-heading muted">Veuillez sélectionner l'équipe</h2>
         <select multiple id="team" name="team" size="5">
           {% for user in users %}
             <option>{{user.name}}</option>

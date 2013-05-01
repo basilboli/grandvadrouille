@@ -4,7 +4,9 @@
 <form class="form-signin" action="confirm" method='post'>
     <input name='id' value='{{entry._id}}' hidden='true'/>
     <span class="label label-info">{{entry.date.strftime('%Y-%m-%d')|safe}} </span> - {{entry.team|join(', ')}}
-    <button class="btn btn-xxsmall btn-success" type="submit">confirm</button>
+    <button name="btn" value="confirm" class="btn btn-xxsmall btn-success" type="submit">confirm</button>
+    <button name="btn" value="cancel"  class="btn btn-xxsmall btn-danger" type="submit">cancel
+    </button>
 </form>
 {% else %}
     <p class="muted lead">Unbelievable.  No entries here so far</p>

@@ -104,27 +104,33 @@ def pending():
 @app.route('/confirm',methods=['POST'])
 def confirm():
     """confirm cleaning"""
+
     id  = request.form ['id']
     if id is None:
         abort(404)
 
-    cleaning = mongo.db.history.find_one({'_id': ObjectId(id)})
+    #if canceling cleaning
+    if request.form['btn']=='cancel':
+        mongo.db.history.remove({'_id': ObjectId(id)})
+        return redirect('/pending')
+    else:
+        cleaning = mongo.db.history.find_one({'_id': ObjectId(id)})
 
-    count = len(cleaning['team'])
-    contribution  = 2.0 / count
-    print 'team count',count
-    print 'contribution : ',contribution
+        count = len(cleaning['team'])
+        contribution  = 2.0 / count
+        print 'team count',count
+        print 'contribution : ',contribution
 
-    #updating users scores
-    for user_name in cleaning['team']:
-        user = mongo.db.users.find_one({'name':user_name})
-        new_score = user['score'] + contribution
-        mongo.db.users.update({'name':user['name']},{'$set':{"score":new_score}})
-        print 'adding contribution {0} to user {1}: '.format(contribution,user['name'])
+        #updating users scores
+        for user_name in cleaning['team']:
+            user = mongo.db.users.find_one({'name':user_name})
+            new_score = user['score'] + contribution
+            mongo.db.users.update({'name':user['name']},{'$set':{"score":new_score}})
+            print 'adding contribution {0} to user {1}: '.format(contribution,user['name'])
 
-    #pending status -> confirmed
-    cleaning = mongo.db.history.update({'_id': ObjectId(id)},{'$set':{"status":'confirmed'}})
-    return redirect('/pending')
+        #pending status -> confirmed
+        cleaning = mongo.db.history.update({'_id': ObjectId(id)},{'$set':{"status":'confirmed'}})
+        return redirect('/pending')
 
 
 if __name__ == '__main__':
